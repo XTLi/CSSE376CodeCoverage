@@ -75,23 +75,26 @@ public class FlightTest {
 		Assert.assertEquals(300, target.getBasePrice(), 0.0001);
 	}
 	
-	/*@Test
+	@Test
 	public void TestThatFlightDoesGetNumberOfPassengers()
 	{
-		var mockDatabase = mocks.StrictMock<IDatabase>();
+		IDatabase mockDB = EasyMock.createMock(IDatabase.class);
+		List<String> Passengers = new LinkedList<String>();
+		for (int i = 0; i < 50; i++)
+	      {
+	          Passengers.add("Bob");
+	      }
 		
-		var values = new List<String>();
-		for(var i = 0; i < 50; i++)
-			values.Add("Bob");
+		EasyMock.replay(mockDB);
 		
-		Expect.Call(mockDatabase.Passengers).Return(values);
-		mocks.ReplayAll();
+		Flight target = new Flight(StartDate, EndDate, 500);
+		mockDB.Passengers = Passengers;
 		
-		var target = new Flight(Date.Now, Date.Now.AddDays(1), 0);
-		
-		target.Database = mockDatabase;
-		Assert.AreEqual(50, target.NumberOfPassengers);
-	}*/
+		target.Database = mockDB;
+		assertEquals(50, target.NumberOfPassengers());
+		EasyMock.verify(mockDB);
+	}
+	
 	
 	@After
 	public void TearDown()

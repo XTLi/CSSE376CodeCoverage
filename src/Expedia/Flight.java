@@ -22,7 +22,6 @@ public class Flight implements Booking {
 	
 	public int NumberOfPassengers()
 	{
-		
 		return Database.Passengers.size();
 		
 	}

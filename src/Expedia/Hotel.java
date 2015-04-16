@@ -12,8 +12,7 @@ public class Hotel implements Booking {
     //Returns the number of rooms available in the hotel
 	public int AvailableRooms()
 	{
-		return Database.Rooms.size();	
-		
+		return Database.Rooms.size();		
 	}
 
     //Returns the occupant of a room in the hotel
