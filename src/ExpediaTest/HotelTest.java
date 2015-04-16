@@ -113,4 +113,5 @@ public class HotelTest
 //
 //        mocks.VerifyAll();
 //    }
+	
 }
